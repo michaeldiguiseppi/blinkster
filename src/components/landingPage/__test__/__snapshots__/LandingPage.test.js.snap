@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LandingPage /> component should match the snapshot 1`] = `
+<div>
+  <table
+    className="table table-hover"
+  >
+    <thead>
+      <tr>
+        <th
+          scope="col"
+        >
+          Year
+        </th>
+        <th
+          scope="col"
+        >
+          Make
+        </th>
+        <th
+          scope="col"
+        >
+          Model
+        </th>
+        <th
+          scope="col"
+        >
+          Mileage
+        </th>
+        <th
+          scope="col"
+        >
+          Drivetrain
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;
