@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Car from '../car/Car';
+import ReactTable from 'react-table';
+import "react-table/react-table.css";
 
 require('./css/LandingPage.css');
 
@@ -44,25 +46,52 @@ export class LandingPage extends Component {
 
     render() {
         let { cars } = this.props;
+        const columns = [{
+            Header: 'Year',
+            accessor: 'year'
+        }, {
+            Header: 'Make',
+            accessor: 'make',
+        }, {
+            Header: 'Model',
+            accessor: 'model'
+        }, {
+            Header: 'Mileage',
+            accessor: 'mileage'
+        }, {
+            Header: 'Drivetrain',
+            accessor: 'drivetrain'
+        }];
+        
+        console.warn(cars.cars);
+
         return (
             <div>
             { cars.isLoading ? this._renderLoading() : 
-                <div className="table-responsive">
-                    <table className="table table-hover overflow">
-                        <thead className="text-center">
-                            <tr>
-                                <th scope="col">Year</th>
-                                <th scope="col">Make</th>
-                                <th scope="col">Model</th>
-                                <th scope="col">Mileage</th>
-                                <th scope="col">Drivetrain</th>
-                            </tr>
-                        </thead>
-                        <tbody className="text-center">
-                            { this._setupCarsData() }
-                        </tbody>
-                    </table>
-                </div>
+            <ReactTable
+                data={ cars.cars }
+                noDataText="Unfortunately, we were unable to retrieve the data. Please try again later."
+                columns={ columns }
+                pageSize={ cars.cars ? cars.cars.length : 20 }
+                filterAll={ true }
+                // filterMethod={ }
+            />
+                // <div className="table-responsive">
+                //     <table className="table table-hover overflow">
+                //         <thead className="text-center">
+                //             <tr>
+                //                 <th scope="col">Year</th>
+                //                 <th scope="col">Make</th>
+                //                 <th scope="col">Model</th>
+                //                 <th scope="col">Mileage</th>
+                //                 <th scope="col">Drivetrain</th>
+                //             </tr>
+                //         </thead>
+                //         <tbody className="text-center">
+                //             { this._setupCarsData() }
+                //         </tbody>
+                //     </table>
+                // </div>
                  }
             </div>
         )
