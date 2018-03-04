@@ -21,3 +21,21 @@ export function fetchCars() {
         .then(json => dispatch(receiveCars(json)));
     };
 }
+
+export function fetchCar(id) {
+    return dispatch => {
+        dispatch({
+            type: types.FETCH_CAR
+        });
+        return fetch(baseUrl())
+        .then(response => response.json())
+        .then(json => dispatch(receiveCar(json, id)));
+    }
+}
+
+export function receiveCar(json, id) {
+    return {
+        type: types.RECEIVE_CAR,
+        payload: json[id]
+    }
+}

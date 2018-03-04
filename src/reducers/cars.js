@@ -1,4 +1,4 @@
-import { FETCH_CARS, RECEIVE_CARS } from '../actions/actionTypes';
+import { FETCH_CARS, RECEIVE_CARS, FETCH_CAR, RECEIVE_CAR } from '../actions/actionTypes';
 
 export default function cars(state = {}, action) {
     const { type, payload } = action;
@@ -12,6 +12,17 @@ export default function cars(state = {}, action) {
             return Object.assign({}, state, {
                 cars: payload,
                 isLoading: false,
+            });
+        }
+        case FETCH_CAR: {
+            return Object.assign({}, state, {
+                isLoading: true
+            })
+        }
+        case RECEIVE_CAR: {
+            return Object.assign({}, state, {
+                car: payload,
+                isLoading: false
             });
         }
         default: {

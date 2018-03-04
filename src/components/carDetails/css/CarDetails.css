@@ -1,0 +1,16 @@
+.vehicle-img {
+    max-width: 50%;
+}
+
+.no-list-style {
+    list-style-type: none;
+}
+
+.vehicle-info {
+    max-width: 50%;
+    margin: auto;
+}
+
+.vehicle-body-style {
+    text-transform: capitalize;
+}

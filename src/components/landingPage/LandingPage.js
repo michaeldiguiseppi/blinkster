@@ -9,7 +9,6 @@ export class LandingPage extends Component {
         this._fetchCars = this._fetchCars.bind(this);
         this._renderLoading = this._renderLoading.bind(this);
         this._setupCarsData = this._setupCarsData.bind(this);
-        this._showCarDetails = this._showCarDetails.bind(this);
     }
 
     componentDidMount() {
@@ -28,7 +27,7 @@ export class LandingPage extends Component {
                     <Car 
                         car={ car } 
                         key={ index }
-                        showCarDetails={ this._showCarDetails }
+                        index={ index }
                     />
                 )
             });
@@ -37,22 +36,20 @@ export class LandingPage extends Component {
 
     _renderLoading() {
         return (
-            <div>Loading...</div>
+            <div className="jumbotron">
+                <h1 className="text-center">Please wait, Loading...</h1>
+            </div>
         )
-    }
-
-    _showCarDetails() {
-        alert("Hello!");
     }
 
     render() {
         let { cars } = this.props;
         return (
             <div>
-            { cars.isLoading ? this._renderLoading() : null }
+            { cars.isLoading ? this._renderLoading() : 
                 <div className="table-responsive">
                     <table className="table table-hover overflow">
-                        <thead>
+                        <thead className="text-center">
                             <tr>
                                 <th scope="col">Year</th>
                                 <th scope="col">Make</th>
@@ -61,11 +58,12 @@ export class LandingPage extends Component {
                                 <th scope="col">Drivetrain</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="text-center">
                             { this._setupCarsData() }
                         </tbody>
                     </table>
                 </div>
+                 }
             </div>
         )
     }

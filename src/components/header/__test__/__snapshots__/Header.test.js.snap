@@ -6,7 +6,7 @@ exports[`<Header /> component should match the snapshot 1`] = `
 >
   <a
     className="navbar-brand"
-    href="#"
+    href="/"
   />
   <button
     aria-controls="navbarColor01"
@@ -33,7 +33,7 @@ exports[`<Header /> component should match the snapshot 1`] = `
       >
         <a
           className="nav-link"
-          href="#"
+          href="/"
         >
           Home
         </a>
