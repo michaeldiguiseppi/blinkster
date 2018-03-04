@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Car from '../car/Car';
 
-export default class LandingPage extends Component {
+require('./css/LandingPage.css');
+
+export class LandingPage extends Component {
     constructor(props) {
         super(props);
         this._fetchCars = this._fetchCars.bind(this);
         this._renderLoading = this._renderLoading.bind(this);
         this._setupCarsData = this._setupCarsData.bind(this);
+        this._showCarDetails = this._showCarDetails.bind(this);
     }
 
     componentDidMount() {
@@ -25,6 +28,7 @@ export default class LandingPage extends Component {
                     <Car 
                         car={ car } 
                         key={ index }
+                        showCarDetails={ this._showCarDetails }
                     />
                 )
             });
@@ -37,28 +41,34 @@ export default class LandingPage extends Component {
         )
     }
 
+    _showCarDetails() {
+        alert("Hello!");
+    }
+
     render() {
         let { cars } = this.props;
         return (
             <div>
             { cars.isLoading ? this._renderLoading() : null }
-            <table className="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Year</th>
-                        <th scope="col">Make</th>
-                        <th scope="col">Model</th>
-                        <th scope="col">Mileage</th>
-                        <th scope="col">Drivetrain</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { this._setupCarsData() }
-                </tbody>
-            </table>
-            {/* <ul>{ this._setupCarsData() }</ul> */}
-            {/* <ul>{ cars && cars.cars.length > 0 ? this._setupCarsData() : null}</ul> */}
+                <div className="table-responsive">
+                    <table className="table table-hover overflow">
+                        <thead>
+                            <tr>
+                                <th scope="col">Year</th>
+                                <th scope="col">Make</th>
+                                <th scope="col">Model</th>
+                                <th scope="col">Mileage</th>
+                                <th scope="col">Drivetrain</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { this._setupCarsData() }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }
 }
+
+export default LandingPage;

@@ -2,39 +2,65 @@
 
 exports[`<LandingPage /> component should match the snapshot 1`] = `
 <div>
-  <table
-    className="table table-hover"
+  <div
+    className="table-responsive"
   >
-    <thead>
-      <tr>
-        <th
-          scope="col"
+    <table
+      className="table table-hover overflow"
+    >
+      <thead>
+        <tr>
+          <th
+            scope="col"
+          >
+            Year
+          </th>
+          <th
+            scope="col"
+          >
+            Make
+          </th>
+          <th
+            scope="col"
+          >
+            Model
+          </th>
+          <th
+            scope="col"
+          >
+            Mileage
+          </th>
+          <th
+            scope="col"
+          >
+            Drivetrain
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          onClick={[Function]}
         >
-          Year
-        </th>
-        <th
-          scope="col"
-        >
-          Make
-        </th>
-        <th
-          scope="col"
-        >
-          Model
-        </th>
-        <th
-          scope="col"
-        >
-          Mileage
-        </th>
-        <th
-          scope="col"
-        >
-          Drivetrain
-        </th>
-      </tr>
-    </thead>
-    <tbody />
-  </table>
+          <th
+            scope="row"
+          >
+            2013
+          </th>
+          <td>
+            Kia
+          </td>
+          <td>
+            Optima
+          </td>
+          <td>
+            24235
+          </td>
+          <td>
+            FWD
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 `;

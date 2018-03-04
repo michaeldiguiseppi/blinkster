@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as carsActions from '../actions/cars';
-import { LandingPage } from '../components/landingPage/LandingPage';
+import LandingPage from '../components/landingPage/LandingPage';
 
 function mapStateToProps(state) {
     let cars = state.cars || [];
