@@ -17,7 +17,7 @@ export default function cars(state = {}, action) {
         case FETCH_CAR: {
             return Object.assign({}, state, {
                 isLoading: true
-            })
+            });
         }
         case RECEIVE_CAR: {
             return Object.assign({}, state, {

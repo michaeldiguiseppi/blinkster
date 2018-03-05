@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CarDetails /> component should match the snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        className="vehicle-img mx-auto d-block"
+      >
+        <img
+          alt="2013 Kia Optima"
+          className="img-fluid rounded"
+          src="http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg"
+        />
+      </div>
+      <div
+        className="vehicle-info"
+      >
+        <div
+          className="card"
+        >
+          <h3
+            className="card-header text-center"
+          >
+            2013 Kia Optima
+          </h3>
+          <div
+            className="card-body"
+          >
+            <ul
+              className="no-list-style"
+            >
+              <li
+                className="veh-info"
+              >
+                Year: 
+                2013
+              </li>
+              <li
+                className="veh-info"
+              >
+                Make: 
+                Kia
+              </li>
+              <li
+                className="veh-info"
+              >
+                Model: 
+                Optima
+              </li>
+              <li
+                className="veh-info"
+              >
+                Mileage: 
+                24235
+              </li>
+              <li
+                className="veh-info"
+              >
+                Drivetrain: 
+                FWD
+              </li>
+              <li
+                className="vehicle-body-style veh-info"
+              >
+                Body Style: 
+                sedan
+              </li>
+              <li
+                className="veh-info"
+              >
+                Posted: 
+                October 14th, 2016
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

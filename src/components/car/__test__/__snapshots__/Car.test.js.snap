@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Car /> component should match the snapshot 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <th
+        scope="row"
+      >
+        2013
+      </th>
+      <td>
+        Kia
+      </td>
+      <td>
+        Optima
+      </td>
+      <td>
+        24235
+      </td>
+      <td
+        className="veh-drivetrain"
+      >
+        FWD
+      </td>
+      <td>
+        <a
+          href="/cars/0"
+        >
+          <button
+            className="btn btn-outline-info"
+            type="button"
+          >
+            Details
+          </button>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore';
 import App from './App';
 import Header from './components/header/Header';
-import CarDetailsContainer from './containers/CarDetailsContainer';
+import CarDetails from './components/carDetails/CarDetails';
 
 import './index.css';
 
@@ -18,7 +18,7 @@ ReactDOM.render(
             <div>
                 <Header title="Blinkster"></Header>
                 <Route exact path="/" component={ App } />
-                <Route path="/cars/:index" component={ CarDetailsContainer } />
+                <Route path="/cars/:index" component={ CarDetails } />
             </div>
         </Router>
     </Provider>

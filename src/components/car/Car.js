@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Car extends Component {
+export class Car extends Component {
 
    render() {
         let { car, index } = this.props;
@@ -10,9 +10,11 @@ export default class Car extends Component {
                 <td>{ car.make }</td>
                 <td>{ car.model }</td>
                 <td>{ car.mileage }</td>
-                <td>{ car.drivetrain ? car.drivetrain : "N/A" }</td>
+                <td className="veh-drivetrain">{ car.drivetrain ? car.drivetrain : "N/A" }</td>
                 <td><a href={`/cars/${index}`}><button type="button" className="btn btn-outline-info">Details</button></a></td>
             </tr>
         )
     }
 }
+
+export default Car;

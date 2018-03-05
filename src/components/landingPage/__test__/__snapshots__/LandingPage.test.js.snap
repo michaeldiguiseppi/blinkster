@@ -8,7 +8,9 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
     <table
       className="table table-hover overflow"
     >
-      <thead>
+      <thead
+        className="text-center"
+      >
         <tr>
           <th
             scope="col"
@@ -37,10 +39,10 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
           </th>
         </tr>
       </thead>
-      <tbody>
-        <tr
-          onClick={[Function]}
-        >
+      <tbody
+        className="text-center"
+      >
+        <tr>
           <th
             scope="row"
           >
@@ -55,8 +57,55 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
           <td>
             24235
           </td>
-          <td>
+          <td
+            className="veh-drivetrain"
+          >
             FWD
+          </td>
+          <td>
+            <a
+              href="/cars/0"
+            >
+              <button
+                className="btn btn-outline-info"
+                type="button"
+              >
+                Details
+              </button>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <th
+            scope="row"
+          >
+            2013
+          </th>
+          <td>
+            Hyundai
+          </td>
+          <td>
+            Accent
+          </td>
+          <td>
+            21587
+          </td>
+          <td
+            className="veh-drivetrain"
+          >
+            FWD
+          </td>
+          <td>
+            <a
+              href="/cars/1"
+            >
+              <button
+                className="btn btn-outline-info"
+                type="button"
+              >
+                Details
+              </button>
+            </a>
           </td>
         </tr>
       </tbody>
