@@ -4,3 +4,4 @@ export const RECEIVE_CARS = "RECEIVE_CARS";
 // Single car actions
 export const FETCH_CAR = "FETCH_CAR";
 export const RECEIVE_CAR = "RECEIVE_CAR";
+export const FAILED_TO_FIND_CAR = "FAILED_TO_FIND_CAR";

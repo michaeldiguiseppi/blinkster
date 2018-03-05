@@ -18,7 +18,7 @@ ReactDOM.render(
             <div>
                 <Header title="Blinkster"></Header>
                 <Route exact path="/" component={ App } />
-                <Route path="/cars/:index" component={ CarDetails } />
+                <Route path="/cars/:year/:make/:model" component={ CarDetails } />
             </div>
         </Router>
     </Provider>

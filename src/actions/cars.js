@@ -22,20 +22,29 @@ export function fetchCars() {
     };
 }
 
-export function fetchCar(id) {
+export function fetchCar(year, make, model) {
     return dispatch => {
         dispatch({
             type: types.FETCH_CAR,
         });
         return fetch(baseUrl() + '/cars.json')
         .then(response => response.json())
-        .then(json => dispatch(receiveCar(json, id)));
+        .then(json => dispatch(receiveCar(json, year, make, model)));
     }
 }
 
-export function receiveCar(json, id) {
-    return {
-        type: types.RECEIVE_CAR,
-        payload: json[id]
+export function receiveCar(json, year, make, model) {
+    let foundCar = json.filter((car) => {
+        return car.year === parseInt(year, 10) && car.make === make && car.model === model;
+    })[0];
+    if (foundCar) {
+        return {
+            type: types.RECEIVE_CAR,
+            payload: foundCar
+        }
+    } else {
+        return {
+            type: types.FAILED_TO_FIND_CAR
+        }
     }
 }

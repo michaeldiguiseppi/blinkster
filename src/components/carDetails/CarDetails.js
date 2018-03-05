@@ -19,7 +19,7 @@ export class CarDetails extends Component {
 
     _fetchCar() {
         let { carsActions, match: { params } } = this.props;
-        return carsActions.fetchCar(params.index);
+        return carsActions.fetchCar(params.year, params.make, params.model);
     }
 
     _renderCar() {

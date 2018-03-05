@@ -24,29 +24,34 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
       >
         <tr>
           <th
+            onClick={[Function]}
             scope="col"
           >
-            Year
+            Year 
           </th>
           <th
+            onClick={[Function]}
             scope="col"
           >
-            Make
+            Make 
           </th>
           <th
+            onClick={[Function]}
             scope="col"
           >
-            Model
+            Model 
           </th>
           <th
+            onClick={[Function]}
             scope="col"
           >
-            Mileage
+            Mileage 
           </th>
           <th
+            onClick={[Function]}
             scope="col"
           >
-            Drivetrain
+            Drivetrain 
           </th>
         </tr>
       </thead>
@@ -75,7 +80,7 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
           </td>
           <td>
             <a
-              href="/cars/0"
+              href="/cars/2013/Kia/Optima"
             >
               <button
                 className="btn btn-outline-info"
@@ -108,7 +113,7 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
           </td>
           <td>
             <a
-              href="/cars/1"
+              href="/cars/2013/Hyundai/Accent"
             >
               <button
                 className="btn btn-outline-info"

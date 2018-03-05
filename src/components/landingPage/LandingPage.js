@@ -14,6 +14,8 @@ export class LandingPage extends Component {
 
         this.state = {
             searchTerm: '',
+            sortDirection: 'asc',
+            sortBy: 'index'
         }
 
         
@@ -22,6 +24,7 @@ export class LandingPage extends Component {
         this._renderLoading = this._renderLoading.bind(this);
         this._setupCarsData = this._setupCarsData.bind(this);
         this.searchUpdated = this.searchUpdated.bind(this)
+        this.sortBy = this.sortBy.bind(this);
     }
 
     componentDidMount() {
@@ -61,12 +64,40 @@ export class LandingPage extends Component {
         });
     }
 
+    sortBy(col, direction) {
+        let sortBy = col;
+        let sortDirection = direction;
+        let { cars } = this.props.cars;
+        if (sortBy === this.state.sortBy) {
+            sortDirection = this.state.sortDirection === 'ASC' ? 'DESC' : 'ASC';
+        } else {
+            sortDirection = 'DESC';
+        }
+        cars.sort((a, b) => {
+            let sortVal = 0;
+            if (a[sortBy] > b[sortBy]) {
+                sortVal = 1;
+            }
+            if (a[sortBy] < b[sortBy]) {
+                sortVal = -1;
+            }
+
+            if (sortDirection === 'DESC') {
+                sortVal = sortVal *= -1;
+            }
+            return sortVal;
+        });
+
+        this.setState({ sortBy, sortDirection });
+    }
+
     render() {
         let { cars } = this.props;
         let filteredCars;
         if (cars && cars.cars && cars.cars.length) {
             filteredCars = cars.cars.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTER));
         }
+        
         return (
             <div>
                 <SearchInput className="search-input form-control" onChange={this.searchUpdated} placeholder="Search by year, make, model, or drivetrain..." />
@@ -75,11 +106,11 @@ export class LandingPage extends Component {
                         <table className="table table-hover overflow">
                             <thead className="text-center">
                                 <tr>
-                                    <th scope="col">Year</th>
-                                    <th scope="col">Make</th>
-                                    <th scope="col">Model</th>
-                                    <th scope="col">Mileage</th>
-                                    <th scope="col">Drivetrain</th>
+                                    <th scope="col" onClick={() => this.sortBy('year', this.state.sortDirection)}>Year { this.state.sortBy === 'year' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
+                                    <th scope="col" onClick={() => this.sortBy('make', this.state.sortDirection)}>Make { this.state.sortBy === 'make' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
+                                    <th scope="col" onClick={() => this.sortBy('model', this.state.sortDirection)}>Model { this.state.sortBy === 'model' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
+                                    <th scope="col" onClick={() => this.sortBy('mileage', this.state.sortDirection)}>Mileage { this.state.sortBy === 'mileage' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
+                                    <th scope="col" onClick={() => this.sortBy('drivetrain', this.state.sortDirection)}>Drivetrain { this.state.sortBy === 'drivetrain' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
                                 </tr>
                             </thead>
                             <tbody className="text-center">
