@@ -31,3 +31,11 @@
   .search-input > input:focus {
     outline: none;
   }
+
+  .col-header {
+    cursor: pointer;
+  }
+
+  .col-header:hover {
+    background-color: rgba(0,0,0,0.075)
+  }

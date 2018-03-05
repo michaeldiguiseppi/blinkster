@@ -24,39 +24,64 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
       >
         <tr>
           <th
+            className="col-header"
+            data-placement="top"
+            data-toggle="tooltip"
             onClick={[Function]}
             scope="col"
+            title="Click to sort"
           >
             year
-             
           </th>
           <th
+            className="col-header"
+            data-placement="top"
+            data-toggle="tooltip"
             onClick={[Function]}
             scope="col"
+            title="Click to sort"
           >
             make
-             
           </th>
           <th
+            className="col-header"
+            data-placement="top"
+            data-toggle="tooltip"
             onClick={[Function]}
             scope="col"
+            title="Click to sort"
           >
             model
-             
           </th>
           <th
+            className="col-header"
+            data-placement="top"
+            data-toggle="tooltip"
             onClick={[Function]}
             scope="col"
+            title="Click to sort"
           >
             mileage
-             
           </th>
           <th
+            className="col-header"
+            data-placement="top"
+            data-toggle="tooltip"
             onClick={[Function]}
             scope="col"
+            title="Click to sort"
           >
             drivetrain
-             
+          </th>
+          <th
+            className="col-header"
+            data-placement="top"
+            data-toggle="tooltip"
+            onClick={[Function]}
+            scope="col"
+            title="Click to sort"
+          >
+            Posted
           </th>
         </tr>
       </thead>
@@ -82,6 +107,9 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
             className="veh-drivetrain"
           >
             FWD
+          </td>
+          <td>
+            October 14th, 2016
           </td>
           <td>
             <a
@@ -115,6 +143,9 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
             className="veh-drivetrain"
           >
             FWD
+          </td>
+          <td>
+            November 14th, 2016
           </td>
           <td>
             <a

@@ -24,6 +24,9 @@ exports[`<Car /> component should match the snapshot 1`] = `
         FWD
       </td>
       <td>
+        October 14th, 2016
+      </td>
+      <td>
         <a
           href="/cars/2013/Kia/Optima"
         >

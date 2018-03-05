@@ -93,11 +93,22 @@ export class LandingPage extends Component {
     }
 
     _setupHeaders() {
-        let headers = ["year", "make", "model", "mileage", "drivetrain"];
+        let headers = ["year", "make", "model", "mileage", "drivetrain", "created_at"];
         return ( 
             <tr>
                 { headers.map((header) => {
-                    return <th scope="col" key={ header } onClick={() => this.sortBy(header, this.state.sortDirection)}>{ header } { this.state.sortBy === header ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
+                    return (
+                    <th 
+                        className="col-header"
+                        data-toggle="tooltip" 
+                        data-placement="top" 
+                        title="Click to sort"
+                        scope="col" 
+                        key={ header } 
+                        onClick={() => this.sortBy(header, this.state.sortDirection)}>
+                            { header === "created_at" ? "Posted" : header } 
+                            { this.state.sortBy === header ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}
+                    </th>)
                 }) }
             </tr>
     );
