@@ -28,9 +28,6 @@ export class CarDetails extends Component {
             <div>   
             { car && Object.keys(car).length !== 0 ? 
             <div>
-                {/* <div className="vehicle-img mx-auto d-block">
-                    <img src={`${car.image_url}`} className="img-fluid rounded" alt={`${car.year} ${car.make} ${car.model}`} />
-                </div> */}
                 <div className="vehicle-info">
                     <div className="card w-75 mx-auto">
                         <h3 className="card-header text-center">{ `${car.year} ${car.make} ${car.model}` }</h3>
