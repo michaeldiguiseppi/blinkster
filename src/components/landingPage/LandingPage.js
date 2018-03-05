@@ -3,14 +3,25 @@ import Car from '../car/Car';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as carsActions from '../../actions/cars';
+import SearchInput, {createFilter} from 'react-search-input'
 require('./css/LandingPage.css');
+
+const KEYS_TO_FILTER = ['make', 'model', 'year', 'drivetrain']
 
 export class LandingPage extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            searchTerm: '',
+        }
+
+        
+
         this._fetchCars = this._fetchCars.bind(this);
         this._renderLoading = this._renderLoading.bind(this);
         this._setupCarsData = this._setupCarsData.bind(this);
+        this.searchUpdated = this.searchUpdated.bind(this)
     }
 
     componentDidMount() {
@@ -22,9 +33,9 @@ export class LandingPage extends Component {
         return carsActions.fetchCars();
     }
 
-    _setupCarsData() {
-        if (this.props.cars && this.props.cars.cars && this.props.cars.cars.length > 0) {
-            return this.props.cars.cars.map((car, index) => {
+    _setupCarsData(filteredCars) {
+        if (filteredCars) {
+            return filteredCars.map((car, index) => {
                 return (
                     <Car 
                         car={ car } 
@@ -44,28 +55,39 @@ export class LandingPage extends Component {
         )
     }
 
+    searchUpdated(term) {
+        this.setState({
+            searchTerm: term
+        });
+    }
+
     render() {
         let { cars } = this.props;
+        let filteredCars;
+        if (cars && cars.cars && cars.cars.length) {
+            filteredCars = cars.cars.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTER));
+        }
         return (
             <div>
-            { cars.isLoading ? this._renderLoading() : 
-                <div className="table-responsive">
-                    <table className="table table-hover overflow">
-                        <thead className="text-center">
-                            <tr>
-                                <th scope="col">Year</th>
-                                <th scope="col">Make</th>
-                                <th scope="col">Model</th>
-                                <th scope="col">Mileage</th>
-                                <th scope="col">Drivetrain</th>
-                            </tr>
-                        </thead>
-                        <tbody className="text-center">
-                            { this._setupCarsData() }
-                        </tbody>
-                    </table>
-                </div>
-                 }
+                <SearchInput className="search-input form-control" onChange={this.searchUpdated} placeholder="Search by year, make, model, or drivetrain..." />
+                { cars.isLoading ? this._renderLoading() : 
+                    <div className="table-responsive">
+                        <table className="table table-hover overflow">
+                            <thead className="text-center">
+                                <tr>
+                                    <th scope="col">Year</th>
+                                    <th scope="col">Make</th>
+                                    <th scope="col">Model</th>
+                                    <th scope="col">Mileage</th>
+                                    <th scope="col">Drivetrain</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-center">
+                                { this._setupCarsData(filteredCars) }
+                            </tbody>
+                        </table>
+                    </div>
+                    }
             </div>
         )
     }

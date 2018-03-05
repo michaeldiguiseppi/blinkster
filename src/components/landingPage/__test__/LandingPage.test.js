@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe('<LandingPage /> component', () => {
+    let landingPageComponent;
     const defaultProps = {
         cars: {
             isLoading: false,
@@ -37,10 +38,16 @@ describe('<LandingPage /> component', () => {
         }
     }
 
-    it('should render without breaking', () => {
-        const landingPageComponent = mount(<LandingPage {...defaultProps} />);
-        expect(landingPageComponent.exists()).toBe(true);
+    beforeEach(() => {
+        landingPageComponent = mount(<LandingPage {...defaultProps} />);
+    });
+
+    afterEach(() => {
         landingPageComponent.unmount();
+    });
+
+    it('should render without breaking', () => {
+        expect(landingPageComponent.exists()).toBe(true);
     });
 
     it('should match the snapshot', () => {
@@ -51,9 +58,11 @@ describe('<LandingPage /> component', () => {
     });
 
     it('should render with 2 vehicles', () => {
-        const landingPageComponent = mount(<LandingPage {...defaultProps} />);
         expect(landingPageComponent.find('Car')).toHaveLength(2);
         expect(landingPageComponent.find('Car').first().prop('car')).toHaveProperty('year');
-        landingPageComponent.unmount();
+    });
+
+    it('should have a search bar', () => {
+        expect(landingPageComponent.find('input')).toHaveLength(1);
     });
 });

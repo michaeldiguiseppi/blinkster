@@ -3,6 +3,17 @@
 exports[`<LandingPage /> component should match the snapshot 1`] = `
 <div>
   <div
+    className="search-input form-control"
+  >
+    <input
+      className={undefined}
+      onChange={[Function]}
+      placeholder="Search by year, make, model, or drivetrain..."
+      type="search"
+      value=""
+    />
+  </div>
+  <div
     className="table-responsive"
   >
     <table
