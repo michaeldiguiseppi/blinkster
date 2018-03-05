@@ -28,20 +28,21 @@ export class CarDetails extends Component {
             <div>   
             { car && Object.keys(car).length !== 0 ? 
             <div>
-                <div className="vehicle-img mx-auto d-block">
+                {/* <div className="vehicle-img mx-auto d-block">
                     <img src={`${car.image_url}`} className="img-fluid rounded" alt={`${car.year} ${car.make} ${car.model}`} />
-                </div>
+                </div> */}
                 <div className="vehicle-info">
-                    <div className="card">
+                    <div className="card w-75 mx-auto">
                         <h3 className="card-header text-center">{ `${car.year} ${car.make} ${car.model}` }</h3>
-                        <div className="card-body">
-                            <ul className="no-list-style">
+                        <img className="card-img-top" src={`${car.image_url}`} alt={`${car.year} ${car.make} ${car.model}`} />
+                        <div className="card-body" id="card-overflow-scroll">
+                            <ul className="no-list-style card-text">
                                 <li className="veh-info">Year: { car.year }</li>
                                 <li className="veh-info">Make: { car.make }</li>
                                 <li className="veh-info">Model: { car.model }</li>
                                 <li className="veh-info">Mileage: { car.mileage }</li>
                                 <li className="veh-info">Drivetrain: { car.drivetrain ? car.drivetrain : "N/A" }</li>
-                                <li className="vehicle-body-style veh-info">Body Style: { car.bodytype }</li>
+                                <li className="vehicle-body-style veh-info">Body Style: { car.bodytype ? car.bodytype : "N/A" }</li>
                                 <li className="veh-info">Posted: { `${moment(car.created_at).format("MMMM Do, YYYY")}` }</li>
                             </ul>
                         </div>

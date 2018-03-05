@@ -25,6 +25,7 @@ export class LandingPage extends Component {
         this._setupCarsData = this._setupCarsData.bind(this);
         this.searchUpdated = this.searchUpdated.bind(this)
         this.sortBy = this.sortBy.bind(this);
+        this._setupHeaders = this._setupHeaders.bind(this);
     }
 
     componentDidMount() {
@@ -91,6 +92,17 @@ export class LandingPage extends Component {
         this.setState({ sortBy, sortDirection });
     }
 
+    _setupHeaders() {
+        let headers = ["year", "make", "model", "mileage", "drivetrain"];
+        return ( 
+            <tr>
+                { headers.map((header) => {
+                    return <th scope="col" key={ header } onClick={() => this.sortBy(header, this.state.sortDirection)}>{ header } { this.state.sortBy === header ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
+                }) }
+            </tr>
+    );
+    }
+
     render() {
         let { cars } = this.props;
         let filteredCars;
@@ -105,13 +117,7 @@ export class LandingPage extends Component {
                     <div className="table-responsive">
                         <table className="table table-hover overflow">
                             <thead className="text-center">
-                                <tr>
-                                    <th scope="col" onClick={() => this.sortBy('year', this.state.sortDirection)}>Year { this.state.sortBy === 'year' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
-                                    <th scope="col" onClick={() => this.sortBy('make', this.state.sortDirection)}>Make { this.state.sortBy === 'make' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
-                                    <th scope="col" onClick={() => this.sortBy('model', this.state.sortDirection)}>Model { this.state.sortBy === 'model' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
-                                    <th scope="col" onClick={() => this.sortBy('mileage', this.state.sortDirection)}>Mileage { this.state.sortBy === 'mileage' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
-                                    <th scope="col" onClick={() => this.sortBy('drivetrain', this.state.sortDirection)}>Drivetrain { this.state.sortBy === 'drivetrain' ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}</th>
-                                </tr>
+                                { this._setupHeaders() }
                             </thead>
                             <tbody className="text-center">
                                 { this._setupCarsData(filteredCars) }

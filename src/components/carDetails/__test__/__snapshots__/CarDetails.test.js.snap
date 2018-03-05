@@ -5,30 +5,27 @@ exports[`<CarDetails /> component should match the snapshot 1`] = `
   <div>
     <div>
       <div
-        className="vehicle-img mx-auto d-block"
-      >
-        <img
-          alt="2013 Kia Optima"
-          className="img-fluid rounded"
-          src="http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg"
-        />
-      </div>
-      <div
         className="vehicle-info"
       >
         <div
-          className="card"
+          className="card w-75 mx-auto"
         >
           <h3
             className="card-header text-center"
           >
             2013 Kia Optima
           </h3>
+          <img
+            alt="2013 Kia Optima"
+            className="card-img-top"
+            src="http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg"
+          />
           <div
             className="card-body"
+            id="card-overflow-scroll"
           >
             <ul
-              className="no-list-style"
+              className="no-list-style card-text"
             >
               <li
                 className="veh-info"
