@@ -4,6 +4,7 @@ import * as types from '../actionTypes';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 // import fetchMock from 'fetch-mock';
+import * as data from './cars.data';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -14,28 +15,7 @@ const baseUrl = "https://gist.githubusercontent.com/creatifyme/2a334c00a117097bf
 describe('Cars actions', () => {
     const mockDataResponse = {
         cars: {
-            cars: [
-        {
-            "year" : 2013,
-            "make" : "Kia",
-            "model" : "Optima",
-            "mileage" : 24235,
-            "drivetrain" : "FWD",
-            "bodytype" : "sedan",
-            "image_url" : "http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg",
-            "created_at" : "2016-10-14T20:13:22.586Z"
-        },
-        {
-            "year" : 2013,
-            "make" : "Hyundai",
-            "model" : "Accent",
-            "mileage" : 21587,
-            "drivetrain" : "FWD",
-            "bodytype" : "sedan",
-            "image_url" : "http://www.conceptcarz.com/images/Hyundai/2013-Hyundai-Accent-Sedan-Image-01.jpg",
-            "created_at" : "2016-11-14T20:13:22.586Z"
-        },
-    ] } }
+            cars: data.allVehicles } }
     afterEach(() => {
         fetchMock.reset();
         fetchMock.restore();
@@ -57,16 +37,7 @@ describe('Cars actions', () => {
     });
 
     it('should call the FETCH_CAR action', () => {
-        const mockResponse = [{
-            "year" : 2013,
-            "make" : "Kia",
-            "model" : "Optima",
-            "mileage" : 24235,
-            "drivetrain" : "FWD",
-            "bodytype" : "sedan",
-            "image_url" : "http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg",
-            "created_at" : "2016-10-14T20:13:22.586Z"
-            }]
+        const mockResponse = data.oneVehicle;
         fetchMock.getOnce(baseUrl, mockResponse);
 
         const expectedActions = [
@@ -85,16 +56,7 @@ describe('Cars actions', () => {
     });
 
     it('should handle a failure to the FETCH_CAR action', () => {
-        const mockResponse = [{
-            "year" : 2013,
-            "make" : "Kia",
-            "model" : "Optima",
-            "mileage" : 24235,
-            "drivetrain" : "FWD",
-            "bodytype" : "sedan",
-            "image_url" : "http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg",
-            "created_at" : "2016-10-14T20:13:22.586Z"
-            }]
+        const mockResponse = data.oneVehicle;
         fetchMock.getOnce(baseUrl, mockResponse);
 
         const expectedActions = [
@@ -119,26 +81,7 @@ describe('Car filter actions', () => {
         fetchMock.restore();
     });
 
-    const mockResponse = [{
-        "year" : 2013,
-        "make" : "Kia",
-        "model" : "Optima",
-        "mileage" : 24235,
-        "drivetrain" : "FWD",
-        "bodytype" : "sedan",
-        "image_url" : "http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg",
-        "created_at" : "2016-10-14T20:13:22.586Z"
-    },
-    {
-        "year" : 2014,
-        "make" : "Nissan",
-        "model" : "Juke",
-        "mileage" : 10457,
-        "drivetrain" : "FWD",
-        "bodytype" : "CUV",
-        "image_url" : "http://www.automobilesreview.com/gallery/2014-nissan-juke-nismo-rs/2014-nissan-juke-nismo-rs-08.jpg",
-        "created_at" : "2016-10-14T20:13:22.586Z"
-      }];
+    const mockResponse = data.allVehicles;
 
 
     it('should return a sorted array by year oldest to newest', () => {
@@ -146,7 +89,7 @@ describe('Car filter actions', () => {
 
         const expectedActions = [
             { type: types.START_SORT },
-            { type: types.FINISH_SORT, payload: mockResponse }
+            { type: types.FINISH_SORT, payload: data.allVehiclesByYear }
         ]
 
         const store = mockStore({ cars: { car: {} } });
@@ -161,7 +104,7 @@ describe('Car filter actions', () => {
 
         const expectedActions = [
             { type: types.START_SORT },
-            { type: types.FINISH_SORT, payload: mockResponse }
+            { type: types.FINISH_SORT, payload: data.allVehiclesByMake }
         ]
 
         const store = mockStore({ cars: { car: {} } });
@@ -172,34 +115,11 @@ describe('Car filter actions', () => {
     });
 
     it('should return a sorted array by model alphabetically', () => {
-        const mockDataResponse = [
-            {
-                "year" : 2014,
-                "make" : "Nissan",
-                "model" : "Juke",
-                "mileage" : 10457,
-                "drivetrain" : "FWD",
-                "bodytype" : "CUV",
-                "image_url" : "http://www.automobilesreview.com/gallery/2014-nissan-juke-nismo-rs/2014-nissan-juke-nismo-rs-08.jpg",
-                "created_at" : "2016-10-14T20:13:22.586Z"
-            },
-            {
-                "year" : 2013,
-                "make" : "Kia",
-                "model" : "Optima",
-                "mileage" : 24235,
-                "drivetrain" : "FWD",
-                "bodytype" : "sedan",
-                "image_url" : "http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg",
-                "created_at" : "2016-10-14T20:13:22.586Z"
-            }
-        ];
-
         fetchMock.getOnce(baseUrl, mockResponse);
 
         const expectedActions = [
             { type: types.START_SORT },
-            { type: types.FINISH_SORT, payload: mockDataResponse }
+            { type: types.FINISH_SORT, payload: data.allVehiclesByModel }
         ]
 
         const store = mockStore({ cars: { car: {} } });
@@ -214,7 +134,7 @@ describe('Car filter actions', () => {
 
         const expectedActions = [
             { type: types.START_SORT },
-            { type: types.FINISH_SORT, payload: mockResponse }
+            { type: types.FINISH_SORT, payload: data.allVehiclesByMileage }
         ]
 
         const store = mockStore({ cars: { car: {} } });
@@ -225,35 +145,31 @@ describe('Car filter actions', () => {
     });
 
     it('should return a sorted array by created_at newest to oldest', () => {
-        const mockDataResponse = [{
-                    "year" : 2013,
-                    "make" : "Kia",
-                    "model" : "Optima",
-                    "mileage" : 24235,
-                    "drivetrain" : "FWD",
-                    "bodytype" : "sedan",
-                    "image_url" : "http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg",
-                    "created_at" : "2016-10-14T20:13:22.586Z"
-                },
-                {
-                    "year" : 2014,
-                    "make" : "SRT",
-                    "model" : "Viper",
-                    "mileage" : 8411,
-                    "image_url" : "http://st.motortrend.com/uploads/sites/5/2013/03/2014-SRT-Viper-TA-front-three-quarters-in-motion-31.jpg",
-                    "created_at" : "2010-10-14T20:13:22.586Z"
-            }];
-
-        fetchMock.getOnce(baseUrl, mockDataResponse);
+        fetchMock.getOnce(baseUrl, mockResponse);
 
         const expectedActions = [
             { type: types.START_SORT },
-            { type: types.FINISH_SORT, payload: mockDataResponse }
+            { type: types.FINISH_SORT, payload: data.allVehiclesByCreatedAt }
         ]
 
         const store = mockStore({ cars: { car: {} } });
 
         return store.dispatch(startSortCars('created_at')).then(() => {
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
+    it('should return the original sorting of the array if invalid parameter is passed', () => {
+        fetchMock.getOnce(baseUrl, mockResponse);
+
+        const expectedActions = [
+            { type: types.START_SORT },
+            { type: types.FINISH_SORT, payload: data.allVehicles }
+        ]
+
+        const store = mockStore({ cars: { cars: {} } });
+
+        return store.dispatch(startSortCars('drivetrain')).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
