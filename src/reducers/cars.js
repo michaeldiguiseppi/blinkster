@@ -35,7 +35,6 @@ export default function cars(state = {}, action) {
         }
         case types.FINISH_SORT: {
             return Object.assign({}, state, {
-                isLoading: false,
                 cars: payload
             });
         }
