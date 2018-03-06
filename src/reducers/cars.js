@@ -1,32 +1,42 @@
-import { FETCH_CARS, RECEIVE_CARS, FETCH_CAR, RECEIVE_CAR, FAILED_TO_FIND_CAR } from '../actions/actionTypes';
+import * as types from '../actions/actionTypes';
 
 export default function cars(state = {}, action) {
-    const { type, payload } = action;
+    const { type, payload, sort } = action;
     switch(type) {
-        case FETCH_CARS: {
+        case types.FETCH_CARS: {
             return Object.assign({}, state, {
                 isLoading: true 
             });
         }
-        case RECEIVE_CARS: {
+        case types.RECEIVE_CARS: {
             return Object.assign({}, state, {
                 cars: payload,
                 isLoading: false,
             });
         }
-        case FETCH_CAR: {
+        case types.FETCH_CAR: {
             return Object.assign({}, state, {
                 isLoading: true
             });
         }
-        case RECEIVE_CAR: {
+        case types.RECEIVE_CAR: {
             return Object.assign({}, state, {
                 car: payload,
                 isLoading: false
             });
-        } case FAILED_TO_FIND_CAR: {
+        } 
+        case types.FAILED_TO_FIND_CAR: {
             return Object.assign({}, state, {
                 isLoading: false
+            });
+        }
+        case types.START_SORT: {
+            return state;
+        }
+        case types.FINISH_SORT: {
+            return Object.assign({}, state, {
+                isLoading: false,
+                cars: payload
             });
         }
         default: {

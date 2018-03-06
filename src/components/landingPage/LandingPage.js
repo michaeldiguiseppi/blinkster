@@ -65,31 +65,9 @@ export class LandingPage extends Component {
         });
     }
 
-    sortBy(col, direction) {
-        let sortBy = col;
-        let sortDirection = direction;
-        let { cars } = this.props.cars;
-        if (sortBy === this.state.sortBy) {
-            sortDirection = this.state.sortDirection === 'ASC' ? 'DESC' : 'ASC';
-        } else {
-            sortDirection = 'DESC';
-        }
-        cars.sort((a, b) => {
-            let sortVal = 0;
-            if (a[sortBy] > b[sortBy]) {
-                sortVal = 1;
-            }
-            if (a[sortBy] < b[sortBy]) {
-                sortVal = -1;
-            }
-
-            if (sortDirection === 'DESC') {
-                sortVal = sortVal *= -1;
-            }
-            return sortVal;
-        });
-
-        this.setState({ sortBy, sortDirection });
+    sortBy(method) {
+        let { startSortCars } = this.props.carsActions;
+        return startSortCars(method);
     }
 
     _setupHeaders() {
@@ -105,7 +83,7 @@ export class LandingPage extends Component {
                         title="Click to sort"
                         scope="col" 
                         key={ header } 
-                        onClick={() => this.sortBy(header, this.state.sortDirection)}>
+                        onClick={() => this.sortBy(header)}>
                             { header === "created_at" ? "Posted" : header } 
                             { this.state.sortBy === header ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}
                     </th>)
