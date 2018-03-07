@@ -85,7 +85,6 @@ export class LandingPage extends Component {
                         key={ header } 
                         onClick={() => this.sortBy(header)}>
                             { header === "created_at" ? "Posted" : header } 
-                            { this.state.sortBy === header ? this.state.sortDirection === 'DESC' ? "↓" : "↑" : null}
                     </th>)
                 }) }
             </tr>
@@ -101,9 +100,9 @@ export class LandingPage extends Component {
         
         return (
             <div>
-                <SearchInput className="search-input form-control" onChange={this.searchUpdated} placeholder="Search by year, make, model, or drivetrain..." />
+                <SearchInput className="search-input form-control" onChange={this.searchUpdated} placeholder="Year, Make, Model, or Drivetrain..." />
                 { cars.isLoading ? this._renderLoading() : 
-                    <div className="table-responsive">
+                    <div className="table-responsive-md">
                         <table className="table table-hover overflow">
                             <thead className="text-center">
                                 { this._setupHeaders() }

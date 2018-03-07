@@ -8,13 +8,13 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
     <input
       className={undefined}
       onChange={[Function]}
-      placeholder="Search by year, make, model, or drivetrain..."
+      placeholder="Year, Make, Model, or Drivetrain..."
       type="search"
       value=""
     />
   </div>
   <div
-    className="table-responsive"
+    className="table-responsive-md"
   >
     <table
       className="table table-hover overflow"
@@ -88,7 +88,9 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
       <tbody
         className="text-center"
       >
-        <tr>
+        <tr
+          onClick={[Function]}
+        >
           <th
             scope="row"
           >
@@ -111,20 +113,10 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
           <td>
             October 14th, 2016
           </td>
-          <td>
-            <a
-              href="/cars/2013/Kia/Optima"
-            >
-              <button
-                className="btn btn-outline-info"
-                type="button"
-              >
-                Details
-              </button>
-            </a>
-          </td>
         </tr>
-        <tr>
+        <tr
+          onClick={[Function]}
+        >
           <th
             scope="row"
           >
@@ -146,18 +138,6 @@ exports[`<LandingPage /> component should match the snapshot 1`] = `
           </td>
           <td>
             November 14th, 2016
-          </td>
-          <td>
-            <a
-              href="/cars/2013/Hyundai/Accent"
-            >
-              <button
-                className="btn btn-outline-info"
-                type="button"
-              >
-                Details
-              </button>
-            </a>
           </td>
         </tr>
       </tbody>

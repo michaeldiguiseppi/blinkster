@@ -3,7 +3,9 @@
 exports[`<Car /> component should match the snapshot 1`] = `
 <table>
   <tbody>
-    <tr>
+    <tr
+      onClick={[Function]}
+    >
       <th
         scope="row"
       >
@@ -25,18 +27,6 @@ exports[`<Car /> component should match the snapshot 1`] = `
       </td>
       <td>
         October 14th, 2016
-      </td>
-      <td>
-        <a
-          href="/cars/2013/Kia/Optima"
-        >
-          <button
-            className="btn btn-outline-info"
-            type="button"
-          >
-            Details
-          </button>
-        </a>
       </td>
     </tr>
   </tbody>
