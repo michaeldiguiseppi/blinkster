@@ -1,10 +1,11 @@
 import * as types from './actionTypes';
 
+/* This could just be a const, but the function allows for if we need to make any changes to the URL, or append anything, etc */
 function baseUrl () {
     return 'https://gist.githubusercontent.com/creatifyme/2a334c00a117097bfdb47f031edf292c/raw/efb52ecf1cf92e2261f504ec7639c68b5ff390bd';
 }
 
-// Get all cars
+/* Get all cars */
 export function fetchCars() {
     return dispatch => {
         dispatch({
@@ -16,7 +17,7 @@ export function fetchCars() {
     };
 }
 
-// Handle receive all cars
+/* Handle receive all cars */
 export function receiveCars(json) {
     return {
         type: types.RECEIVE_CARS,
@@ -24,7 +25,7 @@ export function receiveCars(json) {
     }
 }
 
-// Get one car
+/* Get one car */
 export function fetchCar(year, make, model) {
     return dispatch => {
         dispatch({
@@ -36,7 +37,7 @@ export function fetchCar(year, make, model) {
     }
 }
 
-// Handle receive one car
+/* Handle receive one car */
 export function receiveCar(json, year, make, model) {
     let foundCar = json.filter((car) => {
         return car.year === parseInt(year, 10) && car.make === make && car.model === model;
@@ -53,7 +54,7 @@ export function receiveCar(json, year, make, model) {
     }
 }
 
-// Handle sorting by each method
+/* Handle sorting by each method */
 export function startSortCars(method) {
     return dispatch => {
         dispatch({
@@ -66,6 +67,7 @@ export function startSortCars(method) {
 
 }
 
+// There should be a less verbose way of doing this, but it works.
 function receiveSortedCars(json, method) {
     switch (method) {
         case 'year': {

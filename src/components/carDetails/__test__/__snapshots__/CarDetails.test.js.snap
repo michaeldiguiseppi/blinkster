@@ -8,68 +8,74 @@ exports[`<CarDetails /> component should match the snapshot 1`] = `
         className="vehicle-info"
       >
         <div
-          className="card w-75 mx-auto"
+          className="mx-auto card"
         >
           <h3
             className="card-header text-center"
           >
             2013 Kia Optima
           </h3>
-          <img
-            alt="2013 Kia Optima"
-            className="card-img-top"
-            src="http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg"
-          />
           <div
             className="card-body"
             id="card-overflow-scroll"
           >
+            <div
+              className="w-25"
+            >
+              <img
+                alt="2013 Kia Optima"
+                className="img-thumbnail float-left match-list-height"
+                src="http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg"
+              />
+            </div>
             <ul
-              className="no-list-style card-text"
+              className="no-list-style card-text list-group"
             >
               <li
-                className="veh-info"
+                className="veh-info list-group-item"
               >
                 Year: 
                 2013
               </li>
               <li
-                className="veh-info"
+                className="veh-info list-group-item"
               >
                 Make: 
                 Kia
               </li>
               <li
-                className="veh-info"
+                className="veh-info list-group-item"
               >
                 Model: 
                 Optima
               </li>
               <li
-                className="veh-info"
+                className="veh-info list-group-item"
               >
                 Mileage: 
-                24235
+                24,235
               </li>
               <li
-                className="veh-info"
+                className="veh-info list-group-item"
               >
                 Drivetrain: 
                 FWD
               </li>
               <li
-                className="vehicle-body-style veh-info"
+                className="vehicle-body-style veh-info list-group-item"
               >
                 Body Style: 
                 sedan
               </li>
-              <li
-                className="veh-info"
-              >
-                Posted: 
-                October 14th, 2016
-              </li>
             </ul>
+          </div>
+          <div
+            className="clear-both mx-auto"
+          >
+            <span>
+              Posted: 
+              October 14th, 2016
+            </span>
           </div>
         </div>
       </div>

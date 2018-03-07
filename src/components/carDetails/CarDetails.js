@@ -29,19 +29,24 @@ export class CarDetails extends Component {
             { car && Object.keys(car).length !== 0 ? 
             <div>
                 <div className="vehicle-info">
-                    <div className="card w-75 mx-auto">
+                    <div className="mx-auto card">
                         <h3 className="card-header text-center">{ `${car.year} ${car.make} ${car.model}` }</h3>
-                        <img className="card-img-top" src={`${car.image_url}`} alt={`${car.year} ${car.make} ${car.model}`} />
                         <div className="card-body" id="card-overflow-scroll">
-                            <ul className="no-list-style card-text">
-                                <li className="veh-info">Year: { car.year }</li>
-                                <li className="veh-info">Make: { car.make }</li>
-                                <li className="veh-info">Model: { car.model }</li>
-                                <li className="veh-info">Mileage: { car.mileage }</li>
-                                <li className="veh-info">Drivetrain: { car.drivetrain ? car.drivetrain : "N/A" }</li>
-                                <li className="vehicle-body-style veh-info">Body Style: { car.bodytype ? car.bodytype : "N/A" }</li>
-                                <li className="veh-info">Posted: { `${moment(car.created_at).format("MMMM Do, YYYY")}` }</li>
+                            <div className="w-25">
+                                <img className="img-thumbnail float-left match-list-height" src={`${car.image_url}`} alt={`${car.year} ${car.make} ${car.model}`} />
+                                
+                            </div>
+                            <ul className="no-list-style card-text list-group">
+                                <li className="veh-info list-group-item">Year: { car.year }</li>
+                                <li className="veh-info list-group-item">Make: { car.make }</li>
+                                <li className="veh-info list-group-item">Model: { car.model }</li>
+                                <li className="veh-info list-group-item">Mileage: { car.mileage.toLocaleString() }</li>
+                                <li className="veh-info list-group-item">Drivetrain: { car.drivetrain ? car.drivetrain : "N/A" }</li>
+                                <li className="vehicle-body-style veh-info list-group-item">Body Style: { car.bodytype ? car.bodytype : "N/A" }</li>
                             </ul>
+                        </div>
+                        <div className="clear-both mx-auto">
+                            <span>Posted: { `${moment(car.created_at).format("MMMM Do, YYYY")}` }</span>
                         </div>
                     </div>
                 </div>

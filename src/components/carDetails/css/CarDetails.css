@@ -8,6 +8,6 @@
     text-transform: capitalize;
 }
 
-#card-overflow-scroll {
-    overflow: scroll;
+.match-list-height {
+    max-height: 277px;
 }

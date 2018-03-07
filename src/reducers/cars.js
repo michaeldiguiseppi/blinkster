@@ -1,7 +1,7 @@
 import * as types from '../actions/actionTypes';
 
 export default function cars(state = {}, action) {
-    const { type, payload, sort } = action;
+    const { type, payload } = action;
     switch(type) {
         case types.FETCH_CARS: {
             return Object.assign({}, state, {
