@@ -18,6 +18,7 @@ export class CarDetails extends Component {
     }
 
     _fetchCar() {
+        // Get year/make/model from URL since we don't have an ID field in the data
         let { carsActions, match: { params } } = this.props;
         return carsActions.fetchCar(params.year, params.make, params.model);
     }
@@ -26,6 +27,7 @@ export class CarDetails extends Component {
         let { car } = this.props.cars;
         return (
             <div>   
+            {/* Make sure the car object exists, otherwise render 'Car not found' */}
             { car && Object.keys(car).length !== 0 ? 
             <div>
                 <div className="vehicle-info">
@@ -41,6 +43,7 @@ export class CarDetails extends Component {
                                 <li className="veh-info list-group-item">Make: { car.make }</li>
                                 <li className="veh-info list-group-item">Model: { car.model }</li>
                                 <li className="veh-info list-group-item">Mileage: { car.mileage.toLocaleString() }</li>
+                                {/* Catch if missing drivetrain/bodytype */}
                                 <li className="veh-info list-group-item">Drivetrain: { car.drivetrain ? car.drivetrain : "N/A" }</li>
                                 <li className="vehicle-body-style veh-info list-group-item">Body Style: { car.bodytype ? car.bodytype : "N/A" }</li>
                             </ul>

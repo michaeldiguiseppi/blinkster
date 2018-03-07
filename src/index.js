@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore';
-import App from './App';
+import LandingPage from './components/landingPage/LandingPage';
 import Header from './components/header/Header';
 import CarDetails from './components/carDetails/CarDetails';
 
@@ -17,7 +17,7 @@ ReactDOM.render(
         <Router>
             <div>
                 <Header title="Blinkster"></Header>
-                <Route exact path="/" component={ App } />
+                <Route exact path="/" component={ LandingPage } />
                 <Route path="/cars/:year/:make/:model" component={ CarDetails } />
             </div>
         </Router>

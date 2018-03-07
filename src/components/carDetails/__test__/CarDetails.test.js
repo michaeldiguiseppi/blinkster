@@ -54,7 +54,7 @@ describe('<CarDetails /> component', () => {
 
     it('should have a list of car information', () => {
         expect(carDetailsComponent.find('ul.no-list-style')).toHaveLength(1);
-        // Should have seven key pieces of information rendered
+        // Should have 6 key pieces of information rendered
         expect(carDetailsComponent.find('.veh-info')).toHaveLength(6);
     });
 
