@@ -20,16 +20,16 @@ exports[`<CarDetails /> component should match the snapshot 1`] = `
             id="card-overflow-scroll"
           >
             <div
-              className="w-25"
+              className="web-width-25 mobile-width-100"
             >
               <img
                 alt="2013 Kia Optima"
-                className="img-thumbnail float-left match-list-height"
+                className="img-fluid web-float-left mobile-clear-both match-list-height"
                 src="http://www.optimaforums.com/forum/attachments/new-member-introductions/11137d1347548855-new-2013-kia-optima-sx-l-titanium-photo.jpg"
               />
             </div>
             <ul
-              className="no-list-style card-text list-group"
+              className="no-list-style card-text list-group web-text-left mobile-text-center"
             >
               <li
                 className="veh-info list-group-item"

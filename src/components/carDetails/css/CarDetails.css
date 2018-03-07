@@ -11,3 +11,27 @@
 .match-list-height {
     max-height: 277px;
 }
+
+@media (min-width: 700px) {
+    .mobile-clear-both {
+        clear: both;
+    }
+    .mobile-width-100 {
+        max-width: 100%;
+    }
+    .web-text-left {
+        text-align: left;
+    }
+    .web-float-left {
+        float: left;
+    }
+    .web-width-24 {
+        max-width: 25%;
+    }
+}
+
+@media (max-width: 700px) {
+    .mobile-text-center {
+        text-align: center;
+    }
+}

@@ -34,11 +34,10 @@ export class CarDetails extends Component {
                     <div className="mx-auto card">
                         <h3 className="card-header text-center">{ `${car.year} ${car.make} ${car.model}` }</h3>
                         <div className="card-body" id="card-overflow-scroll">
-                            <div className="w-25">
-                                <img className="img-thumbnail float-left match-list-height" src={`${car.image_url}`} alt={`${car.year} ${car.make} ${car.model}`} />
-                                
+                            <div className="web-width-25 mobile-width-100">
+                                <img className="img-fluid web-float-left mobile-clear-both match-list-height" src={`${car.image_url}`} alt={`${car.year} ${car.make} ${car.model}`} />
                             </div>
-                            <ul className="no-list-style card-text list-group">
+                            <ul className="no-list-style card-text list-group web-text-left mobile-text-center">
                                 <li className="veh-info list-group-item">Year: { car.year }</li>
                                 <li className="veh-info list-group-item">Make: { car.make }</li>
                                 <li className="veh-info list-group-item">Model: { car.model }</li>
